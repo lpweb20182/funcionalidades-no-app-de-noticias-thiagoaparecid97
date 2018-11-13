@@ -1,0 +1,31 @@
+  
+  <h1>Usuarios</h1>
+  <hr>
+  <div *ngIf="excluir_ok" class="alert alert-success">
+      Usuario excluído com sucesso!
+  </div>
+  <div *ngIf="excluir_erro" class="alert alert-warning">
+    Não foi possível excluir o usuario. Tente novamente dentro de instantes.
+  </div>
+  <table class="table mt-1 table-bordered table-hover table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios$ | async">
+      <td>
+        {{usuario.id}}
+      </td>
+      <td>
+        {{usuario.username}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="excluir(usuario)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
